@@ -1,10 +1,10 @@
 import React from 'react';
 
 class Header extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-  render(){
+  render() {
     return (
       <div>
         <h1>Header</h1>
