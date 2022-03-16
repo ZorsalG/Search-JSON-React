@@ -1,46 +1,43 @@
-import React, { useEffect } from "react";
-import ListData from "./ListData.json"
+import React from "react";
+import List from "./List"
 
 class Search extends React.Component {
-
-    constructor(){
-      super();
-      this.state={
-        search:null
-      };
-    }
-
-    search=(event)=>{
-        let keyword = event.target.value;
-        this.setState({search:keyword})
-      }
-
-    render(){
-        const items = ListData.filter((data)=>{
-            if(this.state.search == null)
-                return data
-            else if(data.name.toLowerCase().includes(this.state.search.toLowerCase()) || data.email.toLowerCase().includes(this.state.search.toLowerCase())){
-                return data
-            }
-          }).map(data=>{
-            return(
-        <div>
-          <ul>
-            <li>
-              <span>{data.name} ({data.email})</span>
-            </li>
-          </ul>
-        </div>
-        )
-      })
-  
-      return (
-        <div>
-        <input type="text" onChange={(event)=>this.search(event)} />
-        {items}
-        </div>
-      )
-    }
+  constructor() {
+    super();
+    this.state = {
+      search: '',
+      currentText: null,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  
+
+
+  handleChange(event) {
+    this.setState({
+      search: event.target.value
+
+    })
+    console.log(event)
+  }
+
+  handleClick(event) {
+    this.setState({
+      currentText: null,//COMPONENTE DEL OTRO
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" onChange={this.handleChange} value={this.state.search} />
+        <button onClick={this.handleClick}>Search</button>
+        <div>
+          {this.state.currentText}
+        </div>
+      </div>
+    )
+  }
+}
+
 export default Search;
