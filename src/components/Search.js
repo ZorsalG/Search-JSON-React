@@ -1,7 +1,7 @@
-import React from "react";
-import ListData from "./components/ListData.json"
+import React, { useEffect } from "react";
+import ListData from "./ListData.json"
 
-class App extends React.Component {
+class Search extends React.Component {
 
     constructor(){
       super();
@@ -36,11 +36,11 @@ class App extends React.Component {
   
       return (
         <div>
-        <input type="text" onChange={(e)=>this.search(e)} />
+        <input type="text" onChange={(event)=>this.search(event)} />
         {items}
         </div>
       )
     }
   }
   
-export default App;
+export default Search;
