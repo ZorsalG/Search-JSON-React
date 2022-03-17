@@ -12,19 +12,14 @@ class Search extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-
   handleChange(event) {
     this.setState({
       search: event.target.value
-
     })
-    console.log(event)
   }
 
-  handleClick(event) {
-    this.setState({
-      currentText: null,//COMPONENTE DEL OTRO
-    })
+  handleClick() {
+    
   }
 
   render() {
