@@ -8,6 +8,12 @@ class List extends React.Component {
     }
   }
 
+  componentDidUpdate(dataSearch){
+    if(dataSearch !== this.state.data){
+      
+    }
+  }
+
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
@@ -17,6 +23,7 @@ class List extends React.Component {
         })
       })
   }
+
 
   render() {
     let elementToRender = null;
@@ -41,11 +48,7 @@ class List extends React.Component {
     }
     return (
       <div>
-        <div>
-          FiltroActual: {this.props.currentFilter}
-        </div>
         {elementToRender}
-
       </div>
     )
   }

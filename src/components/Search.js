@@ -1,32 +1,27 @@
 import React from "react";
-import List from "./List"
 
 class Search extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       search: '',
-      currentText: null,
+ 
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
-    this.setState({
+    this.setState({ 
       search: event.target.value
+      
     })
   }
-
-  handleClick() {
-    
-  }
-
+  
   render() {
     return (
       <div>
         <input type="text" onChange={this.handleChange} value={this.state.search} />
-        <button onClick={this.handleClick}>Search</button>
+        <button onClick={() => this.props.asignar(this.state.search)}>Search</button>
         <div>
           {this.state.currentText}
         </div>
