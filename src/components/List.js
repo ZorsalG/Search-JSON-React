@@ -4,13 +4,7 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null,
-    }
-  }
-
-  componentDidUpdate(dataSearch){
-    if(dataSearch !== this.state.data){
-      
+      data: [],
     }
   }
 
@@ -24,31 +18,37 @@ class List extends React.Component {
       })
   }
 
-
   render() {
-    let elementToRender = null;
-    if (Array.isArray(this.state.data)) {
-      if (this.state.data.length === 0) {
-        elementToRender = 'No se encontró resultados'
-      } else {
-        elementToRender = (
-          <ul>
-            {this.state.data.map(data => {
-              return (
-                <li key={data.id}>
-                  <span>{data.name} ({data.email})</span>
-                </li>
-              )
-            })}
-          </ul>
-        )
-      }
-    } else {
-      elementToRender = 'No se realizo la busqueda'
-    }
+    const arrayData = this.state.data;
+    const text = this.props.dataSearch;
+    const filter = arrayData.filter(data => data.name.includes(text));
+    // IDEA HIGHTLIGHT
+    // let elementToRender = null;
+    // if (Array.isArray(this.state.data)) {
+    //   if (this.state.data.length === 0) {
+    //     elementToRender = 'No se encontró resultados'
+    //   } else {
+    //     elementToRender = (
+    //       <ul>
+    //         {this.state.data.map(data => {
+    //           return (
+    //             <li key={data.id}>
+    //               <span>{data.name} ({data.email})</span>
+    //             </li>
+    //           )
+    //         })}
+    //       </ul>
+    //     )
+    //   }
+    // } else {
+    //   elementToRender = 'No se realizo la busqueda'
+    // }
+    //    <div>
+    //   {elementToRender}
+    // </div>
     return (
       <div>
-        {elementToRender}
+        {filter.map(item => <p key={item.id}>{item.name}</p>)}
       </div>
     )
   }
