@@ -21,7 +21,7 @@ class Search extends React.Component {
     return (
       <div>
         <input type="text" onChange={this.handleChange} value={this.state.search} />
-        <button onClick={() => this.props.asignar(this.state.search)}>Search</button>
+        <button onClick={() => this.props.dataInput(this.state.search)}>Search</button>
         <div>
           {this.state.currentText}
         </div>

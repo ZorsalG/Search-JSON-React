@@ -8,10 +8,10 @@ class App extends React.Component {
     this.state = {
       currentText: '',
     }
-    this.asignar = this.asignar.bind(this);
+    this.dataInput = this.dataInput.bind(this);
   }
 
-  asignar(event){
+  dataInput(event){
     this.setState({
       currentText: event
     })
@@ -20,7 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Search asignar={this.asignar}/>
+        <Search dataInput={this.dataInput}/>
         <List dataSearch={this.state.currentText} />
       </div>
     )
