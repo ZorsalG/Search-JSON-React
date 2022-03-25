@@ -1,4 +1,5 @@
 import React from "react";
+import LiClicker from "./LiClicker";
 
 class List extends React.Component {
   constructor(props) {
@@ -19,24 +20,9 @@ class List extends React.Component {
   }
 
   render() {
-    const arrayData = this.state.data;
     let text = this.props.dataSearch.toLowerCase();
-    const filter = arrayData.filter(data => data.name.toLowerCase().includes(text));
-    let elementToRender = null;
-    if (filter.length === 0) {
-      elementToRender = 'No se encontró resultados para ' + text
-    } return (
-      <div>
-        <div>
-          <p>{elementToRender}</p>
-        </div>
-        <ul>
-          {filter.map(item =>
-            <li key={item.id}>
-              <span>{item.name} ({item.email})</span>
-            </li>)}
-        </ul>
-      </div>
+    return(
+    <LiClicker item={this.state.data} textInput={text} onClick={window.alert(Array.toString(this.state.data))}/>
     )
   }
 }

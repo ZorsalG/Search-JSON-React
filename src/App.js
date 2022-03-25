@@ -1,6 +1,7 @@
 import React from "react";
 import List from './components/List'
 import Search from './components/Search'
+import LiClicker from "./components/LiClicker";
 
 class App extends React.Component {
   constructor(props){
