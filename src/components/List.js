@@ -20,38 +20,50 @@ class List extends React.Component {
 
   render() {
     const arrayData = this.state.data;
-    const text = this.props.dataSearch;
-    const filter = arrayData.filter(data => data.name.includes(text));
-    // IDEA HIGHTLIGHT
-    // let elementToRender = null;
-    // if (Array.isArray(this.state.data)) {
-    //   if (this.state.data.length === 0) {
-    //     elementToRender = 'No se encontró resultados'
-    //   } else {
-    //     elementToRender = (
-    //       <ul>
-    //         {this.state.data.map(data => {
-    //           return (
-    //             <li key={data.id}>
-    //               <span>{data.name} ({data.email})</span>
-    //             </li>
-    //           )
-    //         })}
-    //       </ul>
-    //     )
-    //   }
-    // } else {
-    //   elementToRender = 'No se realizo la busqueda'
-    // }
-    //    <div>
-    //   {elementToRender}
-    // </div>
-    return (
+    let text = this.props.dataSearch.toLowerCase();
+    const filter = arrayData.filter(data => data.name.toLowerCase().includes(text));
+    let elementToRender = null;
+    if (filter.length === 0) {
+      elementToRender = 'No se encontró resultados para ' + text
+    } return (
       <div>
-        {filter.map(item => <p key={item.id}>{item.name}</p>)}
+        <div>
+          <p>{elementToRender}</p>
+        </div>
+        <ul>
+          {filter.map(item =>
+            <li key={item.id}>
+              <span>{item.name} ({item.email})</span>
+            </li>)}
+        </ul>
       </div>
     )
   }
 }
+// IDEA HIGHTLIGHT
+// let elementToRender = null;
+// if (Array.isArray(this.state.data)) {
+//   if (this.state.data.length === 0) {
+//     elementToRender = 'No se encontró resultados'
+//   } else {
+//     elementToRender = (
+//       <ul>
+//         {this.state.data.map(data => {
+//           return (
+//             <li key={data.id}>
+//               <span>{data.name} ({data.email})</span>
+//             </li>
+//           )
+//         })}
+//       </ul>
+//     )
+//   }
+// } else {
+//   elementToRender = 'No se realizo la busqueda'
+// }
+//    <div>
+//   {elementToRender}
+// </div>
+
 
 export default List;
