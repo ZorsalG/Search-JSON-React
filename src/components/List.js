@@ -22,7 +22,7 @@ class List extends React.Component {
   render() {
     let text = this.props.dataSearch.toLowerCase();
     return(
-    <LiClicker item={this.state.data} textInput={text} onClick={window.alert(Array.toString(this.state.data))}/>
+    <LiClicker item={this.state.data} textInput={text} style={{background: this.state.data.id % 2 === 0 ? "#CE93D8" : "#9FA8DA"}}/>
     )
   }
 }
