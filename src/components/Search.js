@@ -5,18 +5,18 @@ class Search extends React.Component {
     super(props);
     this.state = {
       search: '',
- 
+
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ 
+    this.setState({
       search: event.target.value
-      
+
     })
   }
-  
+
   render() {
     return (
       <div>

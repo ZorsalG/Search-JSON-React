@@ -4,7 +4,7 @@ import Search from './components/Search'
 import LiClicker from "./components/LiClicker";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       currentText: '',
@@ -12,7 +12,7 @@ class App extends React.Component {
     this.dataInput = this.dataInput.bind(this);
   }
 
-  dataInput(event){
+  dataInput(event) {
     this.setState({
       currentText: event
     })
@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Search dataInput={this.dataInput}/>
+        <Search dataInput={this.dataInput} />
         <List dataSearch={this.state.currentText} />
       </div>
     )
