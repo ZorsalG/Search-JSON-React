@@ -26,30 +26,5 @@ class List extends React.Component {
     )
   }
 }
-// IDEA HIGHTLIGHT
-// let elementToRender = null;
-// if (Array.isArray(this.state.data)) {
-//   if (this.state.data.length === 0) {
-//     elementToRender = 'No se encontró resultados'
-//   } else {
-//     elementToRender = (
-//       <ul>
-//         {this.state.data.map(data => {
-//           return (
-//             <li key={data.id}>
-//               <span>{data.name} ({data.email})</span>
-//             </li>
-//           )
-//         })}
-//       </ul>
-//     )
-//   }
-// } else {
-//   elementToRender = 'No se realizo la busqueda'
-// }
-//    <div>
-//   {elementToRender}
-// </div>
-
 
 export default List;

@@ -12,10 +12,10 @@ class LiClicker extends React.Component {
     let elementToRender = null;
 
     const changeBackground = (item) => {
-      if(item.username.includes('.')){
+      if (item.username.includes('.')) {
         return "#EF9A9A"
       }
-      if(item.id % 2 === 0){
+      if (item.id % 2 === 0) {
         return "#CE93D8"
       } else {
         return "#9FA8DA"
@@ -23,7 +23,7 @@ class LiClicker extends React.Component {
     }
 
     const changeTextColor = (item) => {
-      if(item.email.includes('.org')){
+      if (item.email.includes('.org')) {
         return "#004D40"
       }
     }
@@ -37,7 +37,7 @@ class LiClicker extends React.Component {
         </div>
         <ul>
           {filter.map(item =>
-            <li style={{backgroundColor: changeBackground(item), color: changeTextColor(item)}} key={item.id} onClick={window.alert(item.name + item.email)}>
+            <li style={{ backgroundColor: changeBackground(item), color: changeTextColor(item) }} key={item.id} onClick={window.alert(item.name + item.email)}>
               <span>{item.name} ({item.email})</span>
             </li>)}
         </ul>
