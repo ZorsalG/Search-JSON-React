@@ -10,19 +10,24 @@ class LiClicker extends React.Component {
     let text = this.props.textInput.toLowerCase();
     const filter = arrayData.filter(item => item.name.toLowerCase().includes(text));
     let elementToRender = null;
-    let inputStyle = {
-      backgroundColor: "white",
-      color: "black",
+
+    const changeBackground = (item) => {
+      if(item.username.includes('.')){
+        return "#EF9A9A"
+      }
+      if(item.id % 2 === 0){
+        return "#CE93D8"
+      } else {
+        return "#9FA8DA"
+      }
     }
-    if (this.props.item.username.includes('.')) {
-      inputStyle.backgroundColor = "#004D40"
-    } if (this.props.item.id % 2 === 0) {
-      inputStyle.backgroundColor = "#CE93D8"
-    } else {
-      inputStyle.backgroundColor = "#9FA8DA"
-    } if (this.props.item.email.includes('.org')) {
-      inputStyle.color = "#004D40"
+
+    const changeTextColor = (item) => {
+      if(item.email.includes('.org')){
+        return "#004D40"
+      }
     }
+
     if (filter.length === 0) {
       elementToRender = 'No se encontró resultados para ' + text
     } return (
@@ -31,10 +36,9 @@ class LiClicker extends React.Component {
           <p>{elementToRender}</p>
         </div>
         <ul>
-
           {filter.map(item =>
-            <li key={item.id} style={inputStyle}>
-              <span onClick={window.alert(item.name + item.email)}>{item.name} ({item.email})</span>
+            <li style={{backgroundColor: changeBackground(item), color: changeTextColor(item)}} key={item.id} onClick={window.alert(item.name + item.email)}>
+              <span>{item.name} ({item.email})</span>
             </li>)}
         </ul>
       </div>
