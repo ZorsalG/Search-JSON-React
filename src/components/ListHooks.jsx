@@ -18,10 +18,6 @@ export function ListHooks(props) {
 
   let text = props.dataSearch;
   return (
-    <ul>
-      {data.map((data) => (
-        <LiClickerHooks key={data.id} dataSearch={text} {...data}/>
-      ))}
-    </ul>
+    <LiClickerHooks key={data.id} dataSearch={text} item={data} />
   );
 }

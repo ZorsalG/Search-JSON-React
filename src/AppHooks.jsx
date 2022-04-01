@@ -7,8 +7,8 @@ export default function AppHooks() {
 
   return (
     <div>
-      <SearchHooks changeText={currentText => setCurrentText(currentText)}/>
-      <ListHooks dataSearch={currentText}/>
+      <SearchHooks changeText={currentText => setCurrentText(currentText)} />
+      <ListHooks dataSearch={currentText} />
     </div>)
 }
 
