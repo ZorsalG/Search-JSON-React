@@ -3,6 +3,12 @@ import React from "react";
 class LiClicker extends React.Component {
   constructor(props) {
     super(props);
+
+    this.alertInfo = this.alertInfo.bind(this);
+  }
+
+  alertInfo = (item) => {
+      window.alert(item.name + item.email)
   }
 
   render() {
@@ -37,7 +43,7 @@ class LiClicker extends React.Component {
         </div>
         <ul>
           {filter.map(item =>
-            <li style={{ backgroundColor: changeBackground(item), color: changeTextColor(item) }} key={item.id} onClick={window.alert(item.name + item.email)}>
+            <li style={{ backgroundColor: changeBackground(item), color: changeTextColor(item) }} key={item.id} onClick={() => this.alertInfo(item)}>
               <span>{item.name} ({item.email})</span>
             </li>)}
         </ul>
