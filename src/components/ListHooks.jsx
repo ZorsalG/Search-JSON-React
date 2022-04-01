@@ -18,6 +18,6 @@ export function ListHooks(props) {
 
   let text = props.dataSearch;
   return (
-    <LiClickerHooks key={data.id} dataSearch={text} item={data} />
+    <LiClickerHooks dataSearch={text} item={data} />
   );
 }
