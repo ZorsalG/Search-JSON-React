@@ -5,13 +5,9 @@ import { SearchHooks } from "./components/SearchHooks";
 export default function AppHooks() {
   const [currentText, setCurrentText] = useState("");
 
-  const dataInput = (e) =>{
-    setCurrentText(e)
-  }
-
   return (
     <div>
-      <SearchHooks dataInput={dataInput}/>
+      <SearchHooks changeText={currentText => setCurrentText(currentText)}/>
       <ListHooks dataSearch={currentText}/>
     </div>)
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { LiClickerHooks } from "./LiClickerHooks";
 
 export function ListHooks(props) {
   const [data, setData] = useState([]);
@@ -15,12 +16,11 @@ export function ListHooks(props) {
     fetchData();
   }, []);
 
+  let text = props.dataSearch;
   return (
     <ul>
       {data.map((data) => (
-        <li key={data.id}>
-          {data.name} ({data.email})
-        </li>
+        <LiClickerHooks key={data.id} dataSearch={text} {...data}/>
       ))}
     </ul>
   );
